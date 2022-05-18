@@ -1,26 +1,29 @@
-import { React } from "react";
+import React from "react";
 import "./tile.css";
 
 export const Tile = (props) => {
   const style = {
-    width: "40px",
-    height: "40px",
+    width: "80px",
+    height: "80px",
     borderWidth: "0.1px",
     color: "#000000",
+    fontSize: "30px",
     backgroundColor: "#FFFFFF"
   };
+
+  if (props.tile.isMiddle) {
+    style["backgroundColor"] = "#FFFF77";
+  }
 
   return (
     <button
       style={style}
-      value={props.number}
+      value={props.tile.value}
       onClick={(e) => {
-        console.log("test");
-        style["backgroundColor"] = "red";
         props.isValidAnswer(Number(e.target.value));
       }}
     >
-      {props.number}
+      {props.tile.value}
     </button>
   );
 };

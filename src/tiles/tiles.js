@@ -2,13 +2,17 @@ import React from "react";
 import { TileColumn } from "./tileColumn.js";
 
 export const Tiles = (props) => {
-  let number = props.number;
+  let tileCount = props.tileCount;
   const tilesArray = props.tilesArray;
-  if (number) {
+  if (tileCount) {
     return tilesArray.map((tiles) => {
       return (
         <div className="tile-column">
-          <TileColumn tiles={tiles} isValidAnswer={props.isValidAnswer} />
+          <TileColumn
+            tiles={tiles}
+            isValidAnswer={props.isValidAnswer}
+            tileCount={tileCount}
+          />
         </div>
       );
     });
